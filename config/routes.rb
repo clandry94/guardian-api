@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   post 'test', to: 'tmp_endpoint#in'
   get 'test', to: 'tmp_endpoint#out'
-
-  post 'user', to: 'user#out'
-
+  #User routes
+  post 'user', to: 'user#show' 
+  post 'user', to: 'user#update'
+  post 'user', to: 'user#delete'
+  get 'user', to: 'user#show'
+  #notifications
+  post 'notifications', to: 'notifications#send_message'
 end

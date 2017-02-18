@@ -1,29 +1,30 @@
 class UserController < ApplicationController
-  def out
-    objectId = params[:objectId]  
-    data = User.find_by(:_id => BSON::ObjectId.from_string(objectId))
+  
+  #signUp
+  def create
+  end
+  #TODO: return callback with modified fields and delete
+  def update
+    objectId = BSON::ObjectId.from_string(params[:objectId]) 
+    updateFields = params[:updateFields]
+
+    User.where(_id: objectId)
+        .find_and_modify(updateFields)
+    render status: 200
+  end
+
+ def show
+    objectId = BSON::ObjectId.from_string(params[:objectId]) 
+
+    data = User.find_by(_id: objectId)
     render json: data
   end
 
+  def delete
+    objectId = BSON::ObjectId.from_string(params[:objectId])   
 
-  def in
-    
-  end
-
-  def create
-  end
-  
-  def new
-
-  end
-
-  def show
-
-  end
-
-  def destroy(objectId) 
-    puts params[:name] 
-    User.where(name[:first] => "Conor")
+    User.delete(_id: objectId) 
+    render status: 200
   end
 
 end
