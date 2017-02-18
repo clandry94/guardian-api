@@ -15,7 +15,7 @@ gem 'mongoid', '~> 6.0.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Gmail client API
-gem 'google-api-client'
+gem 'google-api-client', '0.8.2', require: 'google/api_client'
 
 # oauth2
 gem 'oauth2-client'
