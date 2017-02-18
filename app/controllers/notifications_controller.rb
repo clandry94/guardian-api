@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
 
   def send_message
     twilio_number = ENV['TWILIO_NUMBER']
-    client = Twilio::REST::Client.newgem  ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+    client = Twilio::REST::Client.new  ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
 
     client.messages.create(
       from: twilio_number,
