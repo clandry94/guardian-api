@@ -12,4 +12,12 @@ class NotificationsController < ApplicationController
       # media_url: image_url
     )
   end
+
+  def send_email
+    alert_message = params[:alert_message]
+    recipient = params[:recipient]
+      # Sends email to user when user is created.
+      UserNotifierMailer.sample_email({ recipient: recipient, alert_message: alert_message }).deliver
+
+  end
 end
