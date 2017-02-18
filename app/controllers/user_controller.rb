@@ -27,5 +27,11 @@ class UserController < ApplicationController
     render status: 200
   end
 
+  def user_creation_callback
+    Rails.logger.info params[:access_token]
+    new_user = User.new(id_token: params[:id_token],
+                        access_token: params[:access_token],
+                        refresh_token: params[:refresh_token])
+  end
 end
 
