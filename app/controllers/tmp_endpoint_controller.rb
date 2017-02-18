@@ -9,4 +9,21 @@ class TmpEndpointController < ApplicationController
   def in
     
   end
+
+  def create
+  end
+  
+  def new
+
+  end
+
+  def show
+
+  end
+
+  def destroy 
+    puts params[:name] 
+    User.where(name[:first]: "Conor")
+  end
+
 end
