@@ -10,6 +10,7 @@ class UserController < ApplicationController
 
     User.where(_id: objectId)
         .find_and_modify(updateFields)
+        .save
     render status: 200
   end
 
@@ -23,7 +24,7 @@ class UserController < ApplicationController
   def delete
     objectId = BSON::ObjectId.from_string(params[:objectId])   
 
-    User.delete(_id: objectId) 
+    User.delete(_id: objectId).save 
     render status: 200
   end
 
