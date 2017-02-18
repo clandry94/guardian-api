@@ -5,25 +5,27 @@ class UserController < ApplicationController
   end
   #TODO: return callback with modified fields and delete
   def update
-    objectId = BSON::ObjectId.from_string(params[:objectId]) 
+    id_token = request.headers['id_token']
     updateFields = params[:updateFields]
 
-    User.where(_id: objectId)
+    User.where(id_token: id_token)
         .find_and_modify(updateFields)
-    render status: 200
+        .save
+    updatedUser = User.find_by(id_token: id_token)     
+    render json: updatedUser
   end
 
  def show
-    objectId = BSON::ObjectId.from_string(params[:objectId]) 
+    id_token = request.headers['id_token'] 
 
-    data = User.find_by(_id: objectId)
-    render json: data
+    foundUser = User.find_by(id_token: id_token)
+    render json: foundUser
   end
 
   def delete
-    objectId = BSON::ObjectId.from_string(params[:objectId])   
+    id_token = request.headers['id_token']   
 
-    User.delete(_id: objectId) 
+    User.delete(id_token: id_token).save 
     render status: 200
   end
 
