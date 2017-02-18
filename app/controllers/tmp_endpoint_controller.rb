@@ -23,7 +23,7 @@ class TmpEndpointController < ApplicationController
 
   def destroy 
     puts params[:name] 
-    User.where(name[:first]: "Conor")
+    User.where(name[:first] => "Conor")
   end
 
 end
