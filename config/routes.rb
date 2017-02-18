@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   post 'test', to: 'tmp_endpoint#in'
   get 'test', to: 'tmp_endpoint#out'
+  
 
+  post 'auth', to: 'application#new'
 end
