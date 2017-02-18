@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   # notifications params 'phone_number':'xxxxxxxxx', 'alert_message':'xxxxxxxx'
   post 'notifications/send_message', to: 'notifications#send_message'
   post 'notifications/send_email', to: 'notifications#send_email'
+  
+  post 'auth', to: 'application#new'
+
 end
