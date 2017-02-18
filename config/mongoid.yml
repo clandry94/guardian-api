@@ -1,0 +1,6 @@
+development:
+  clients:
+    default:
+      database: guardian_dev
+      hosts:
+        - localhost:27017
