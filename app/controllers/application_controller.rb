@@ -10,7 +10,6 @@ class ApplicationController < ActionController::API
   
  
   def new
-
     render json: { status: "1" }
   end
  
