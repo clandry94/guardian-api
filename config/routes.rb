@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'user', to: 'user#update'
   delete 'user', to: 'user#delete'
   get 'user', to: 'user#show'
+  get 'user/events', to: 'user#events'
   # notifications params 'phone_number':'xxxxxxxxx', 'alert_message':'xxxxxxxx'
   post 'notifications/send_message', to: 'notifications#send_message'
   post 'notifications/send_email', to: 'notifications#send_email'
