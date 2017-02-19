@@ -13,6 +13,7 @@ class User
   field :phone, type: String
   field :emergency_contacts, type: Array
 
+
   def update_settings(settings)
 
   end

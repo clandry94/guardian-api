@@ -4,10 +4,12 @@ Rails.application.routes.draw do
 
   post 'test', to: 'tmp_endpoint#in'
   get 'test', to: 'tmp_endpoint#out'
+  
   #User routes
   post 'user', to: 'user#update'
   delete 'user', to: 'user#delete'
   get 'user', to: 'user#show'
+  get 'user/events', to: 'user#events'
   post 'oauth2callback', to: 'application#authcode_callback'
   post 'auth', to: 'application#new'
   # notifications params 'phone_number':'xxxxxxxxx', 'alert_message':'xxxxxxxx'
