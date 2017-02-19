@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   post 'test', to: 'tmp_endpoint#in'
   get 'test', to: 'tmp_endpoint#out'
+  
   #User routes
   post 'user', to: 'user#update'
   delete 'user', to: 'user#delete'

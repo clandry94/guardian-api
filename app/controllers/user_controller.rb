@@ -17,16 +17,18 @@ class UserController < ApplicationController
   end
 
   def delete
+    id_token = request.headers['id-token'].to_s
+    @user = User.find_by(id_token: id_token)
     @user.delete
     @user.save 
     render status: 200
   end
 
-
   def events
+    id_token = request.headers['id-token'].to_s
+    @user = User.find_by(id_token: id_token)
     foundUserEvents = @user[:events]
     render json: foundUserEvents
-  
   end
   
   def user_creation_callback
