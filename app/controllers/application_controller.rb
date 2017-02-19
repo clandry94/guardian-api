@@ -14,7 +14,8 @@ class ApplicationController < ActionController::API
       auth_client = User.set_access_token params[:auth_code]
       user = User.new(id_token: auth_client.id_token, access_token: auth_client.access_token)
       if user.save
-        # at this point we should probably pull down all the events
+        # do calendar shit
+        User.fill_events(auth_client.id_token)
       end
       render json: { status: "0", message: "new user created!!" }
     end

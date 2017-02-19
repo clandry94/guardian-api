@@ -18,6 +18,12 @@ class User
 
   end
 
+  def self.fill_events(id_token)
+    10.times do
+      Rails.logger.info id_token
+    end
+  end
+
   def self.set_access_token(auth_code)
     client_secrets = Google::APIClient::ClientSecrets.load "#{Rails.root}/client_secrets.json"
     auth_client = client_secrets.to_authorization
