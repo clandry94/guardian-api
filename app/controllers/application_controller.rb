@@ -8,19 +8,33 @@ class ApplicationController < ActionController::API
    
   def new
     id_token = params[:id_token]
-    if User.find(id_token: id_token)
+    Rails.logger.info "ID TOKEN #{id_token}" 
+    Rails.logger.info User.find_by(id_token: id_token)
+
+    if User.find_by(id_token: id_token)
       Rails.logger.info "User exists!"
-    else
+      # redirect to an api call for the user
+      return
+    end
+     
+    begin
       auth_client = User.set_access_token params[:auth_code]
-      user = User.new(id_token: auth_client.id_token, access_token: auth_client.access_token)
-      if user.save
-        # at this point we should probably pull down all the events
-      end
-      render json: { status: "0", message: "new user created!!" }
-    end    
+    rescue => e
+      Rails.logger.info e
+    end 
+     
   end
  
   def authcode_callback
+    user = User.new(id_token: params[:id_token], access_token: params[:access_token])
+      
+    if user.save
+      # at this point we should probably pull down all the events
+      # and render the users document after getting events  
+    end
+
     Rails.logger.info params[:id_token]
   end
+
+
 end
