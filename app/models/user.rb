@@ -22,7 +22,7 @@ class User
     auth_client = client_secrets.to_authorization
     auth_client.update!(
       scope: 'https://www.googleapis.com/auth/calendar.readonly',
-      redirect_uri: "#{ENV["REDIRECT_URI"]}/oauth2callback"
+      redirect_uri: "https://731a0b48.ngrok.io/oauth2callback"
     )
 
     auth_client.code = auth_code
