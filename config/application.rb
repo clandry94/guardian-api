@@ -23,7 +23,7 @@ module GuardianApi
     # -- all .rb files in that directory are automatically loaded.
     
     config.mongoid.logger = Logger.new($stdout, :warn);
-
+    Mongoid.raise_not_found_error = false
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.

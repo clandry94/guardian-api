@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   delete 'user', to: 'user#delete'
   get 'user', to: 'user#show'
   get 'user/events', to: 'user#events'
+  post 'oauth2callback', to: 'application#authcode_callback'
+  post 'auth', to: 'application#new'
   # notifications params 'phone_number':'xxxxxxxxx', 'alert_message':'xxxxxxxx'
   post 'notifications/send_message', to: 'notifications#send_message'
   post 'notifications/send_email', to: 'notifications#send_email'
+  
+  post 'auth', to: 'application#new'
+
 end
