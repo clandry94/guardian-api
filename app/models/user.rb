@@ -1,7 +1,7 @@
 require 'oauth2'
 class User
   include Mongoid::Document
-  embeds_one :events
+  embeds_one :event
 
   field :id_token, type: String
   field :access_token, type: String
