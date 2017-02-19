@@ -7,16 +7,12 @@ class ApplicationController < ActionController::API
   end
 
   def new
-    id_token = params[:id_token]
     if User.find(id_token: id_token)
       Rails.logger.info "User exists!"
     else
-      auth_client = User.set_access_token params[:auth_code]
-      user = User.new(id_token: auth_client.id_token, access_token: auth_client.access_token)
-      if user.save
-        # do calendar shit
-        User.fill_events(auth_client.id_token)
-      end
+      # auth_client = User.set_access_token params[:auth_code]
+      #user = User.new(id_token: params[:id_token], access_token: params[:access_token])
+      #user.save!
       render json: { status: "0", message: "new user created!!" }
     end
   end

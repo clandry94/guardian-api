@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 first = {
-"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjFmY2MwOWEyNTU0ZjhiNDRhZGY1N2UzNDA2MTBiMmFiNzhlZTE4ZWQifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiaWF0IjoxNDg3NDY3NzU5LCJleHAiOjE0ODc0NzEzNTksImF0X2hhc2giOiJKSlVaODJvOVpNVW1tSHo3a1RUSENnIiwiYXVkIjoiMTQwOTE0ODE1NTUzLTNyY3E4MnNoNDN0MDV0M2RmbjViNWw0MHUyamExcWx0LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTA3ODIwNTE1MTY3MDQ0MjY1NTcwIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjE0MDkxNDgxNTU1My0zcmNxODJzaDQzdDA1dDNkZm41YjVsNDB1MmphMXFsdC5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImVtYWlsIjoieGltc2VyZ2lvQGdtYWlsLmNvbSJ9.XYTseE1BsbKRpn2FaBBLi4AdpaIqGIDrsEsVV8s7Ptnxw9_wJhS3plVQi8Du8KhkIrdBkvrCypZxLjgcLmAkpsYH2o37U8M10LvzcTU-cJYNpeefOG5gALiy1EJdaCOB7opuf6O3ZoTPZ0yrCLA3GSSOTBVVeZm-bEVQfeUInrEFdbyRJQQArE2NyLvlDE1OwwHJUvoMTpSSFP9t_j9jg4034EtX_nTamUnLRwiLT0H3gfLWP8jV27sfi6DlHE1toAnvLIIXlQIsw_0hOwsiPZpyNqWavxTuSBn7Q0Gv2DsYJF76GnVKoML0MmJpfDF-UzWyM0H3nv_H0w-6haw45g",
+"id_token": "HelloSergioIamAToken",
 "access_token": "wdokokwadok21",
 "refresh_token": "wdkajjpokfap32",
 "name": {
@@ -77,11 +77,3 @@ event_one = {"event": [{
 user1 = User.create(first)
 user1.update_attributes(:event => event_one)
 user1.save
-
-user2 = User.create(first)
-user2.update_attributes(:event => event_one)
-user2.save
-
-user3 = User.create(first)
-user3.update_attributes(:event => event_one)
-user3.save
