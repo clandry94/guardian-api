@@ -1,10 +1,14 @@
 class UserController < ApplicationController
   
   def update
-    id_token = request.headers['id_token']
-    updateFields = params[:updateFields]
+    id_token = request.headers['id-token'].to_s
+    Rails.logger.info id_token
+    updateFields = params
 
-    @user.update(updateFields)    
+    @user = User.find_by(id_token: id_token)
+    Rails.logger.info User.find_by(id_token: id_token)
+    @user.update_attributes!(updateFields.permit(:role_ids))
+    @user.save   
     render json: @user
   end
 
@@ -29,5 +33,6 @@ class UserController < ApplicationController
                         access_token: params[:access_token],
                         refresh_token: params[:refresh_token])
   end
+end
 end
 

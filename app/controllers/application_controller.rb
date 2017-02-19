@@ -4,8 +4,8 @@ class ApplicationController < ActionController::API
   def authenticate
     Rails.logger.info "We would normally authenticate here!"
     #render json: { status: "1" }
-    id_token = request.headers
-    Rails.logger.info request.headers["HTTP_CONTENT_TYPE"]
+    id_token = request.headers["id-token"]
+    Rails.logger.info request.headers["id-token"]
     @user = User.find_by(id_token: id_token)
     @user
   end
